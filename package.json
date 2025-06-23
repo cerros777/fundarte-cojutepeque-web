@@ -1,0 +1,45 @@
+{
+  "name": "fundarte-cojutepeque",
+  "version": "1.0.0",
+  "description": "Landing page moderna e interactiva para FundArte Cojutepeque",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 3000 -o",
+    "dev": "npx live-server --port=3000",
+    "build": "echo 'Build process can be added here'",
+    "lint": "echo 'Linting can be added here'",
+    "test": "echo 'Testing can be added here'"
+  },
+  "keywords": [
+    "arte",
+    "cultura",
+    "cojutepeque",
+    "el-salvador",
+    "fundacion",
+    "landing-page",
+    "responsive",
+    "modern"
+  ],
+  "author": "FundArte Cojutepeque",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fundarte-cojutepeque/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fundarte-cojutepeque/website/issues"
+  },
+  "homepage": "https://fundarte-cojutepeque.org",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+} 
