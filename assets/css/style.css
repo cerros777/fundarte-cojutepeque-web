@@ -981,12 +981,12 @@ p {
 }
 
 /* Icon floating over image */
-.program-card-img .program-icon {
+.program-card .program-icon {
     position: absolute;
-    bottom: -28px;
+    top: 200px;
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
+    transform: translate(-50%, -50%);
+    z-index: 10;
     width: 56px;
     height: 56px;
     font-size: 1.4rem;
@@ -1060,7 +1060,7 @@ p {
 }
 
 .program-card:hover .program-icon {
-    transform: scale(1.1) rotate(10deg);
+    transform: translate(-50%, -50%) scale(1.1) rotate(10deg);
 }
 
 /* Each program gets its own color personality */
@@ -1095,6 +1095,115 @@ p {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
+}
+
+/* Spaces Section */
+.spaces {
+    padding: var(--section-padding);
+    background: var(--bg-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.spaces-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.space-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.space-item.reverse {
+    direction: rtl;
+}
+
+.space-item.reverse > * {
+    direction: ltr;
+}
+
+.space-visual {
+    position: relative;
+}
+
+.space-image-wrapper {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    aspect-ratio: 4/3;
+}
+
+.space-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.space-item:hover .space-image-wrapper img {
+    transform: scale(1.1);
+}
+
+.space-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(233, 134, 10, 0.2), rgba(46, 73, 116, 0.2));
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.space-item:hover .space-overlay {
+    opacity: 1;
+}
+
+.space-info h3 {
+    font-size: 2.8rem;
+    color: var(--true-blue);
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.space-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--ochre);
+    border-radius: 2px;
+}
+
+.space-info p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.space-features {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.space-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--cadet-gray-dark);
+}
+
+.space-features li i {
+    color: var(--kelly-green);
+    font-size: 1.2rem;
 }
 
 /* Gallery Section */
@@ -1310,6 +1419,19 @@ p {
     min-height: 120px;
 }
 
+.contact-map {
+    margin-top: 4rem;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border: 4px solid var(--bg-white);
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.contact-map iframe {
+    display: block;
+}
+
 /* Footer */
 .footer {
     background: var(--cadet-gray-dark);
@@ -1433,6 +1555,13 @@ p {
         left: 0;
     }
 
+    /* Ensure links are visible on mobile menu background */
+    .nav-menu .nav-link {
+        color: var(--text-dark) !important;
+        padding: 1.5rem 0;
+        width: 100%;
+    }
+
     .nav-toggle {
         display: flex;
     }
@@ -1487,7 +1616,8 @@ p {
 
     /* Hero Visual Elements Mobile Fixes */
     .hero-visual {
-        order: -1; /* Move visual elements above text on mobile */
+        order: 1; /* Move visual elements BELOW text on mobile */
+        margin-top: 2rem;
         margin-bottom: 2rem;
     }
 
@@ -1573,9 +1703,25 @@ p {
         padding: 0 15px;
     }
 
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 2.2rem; }
     h3 { font-size: 1.8rem; }
+
+    /* Spaces Mobile */
+    .space-item {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .space-item.reverse {
+        direction: ltr; /* Reset direction on mobile */
+    }
+
+    .space-info h3 {
+        font-size: 2rem;
+    }
+
+    .space-image-wrapper {
+        aspect-ratio: 16/9;
+    }
 }
 
 @media (max-width: 480px) {
