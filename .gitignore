@@ -160,3 +160,7 @@ build/
 # Local configuration files
 config.local.js
 settings.local.json 
+
+AGENTS.md
+plans
+.opencode
