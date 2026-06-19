@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initNavigation();
     initHeroSlider();
-    initSmoothScrolling();
+    // initSmoothScrolling(); — disabled: uses native anchor scroll with scroll-margin-top on .space-item
     initScrollAnimations();
     initContactForm();
     initScrollEffects();
@@ -211,7 +211,7 @@ function initSmoothScrolling() {
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
+                const offsetTop = targetSection.offsetTop - 110;
                 
                 // Smooth scroll with easing
                 smoothScrollTo(offsetTop, 1000);
