@@ -423,11 +423,12 @@ function initScrollEffects() {
     // Animated counters for stats
     const statNumbers = document.querySelectorAll('.stat-number');
     statNumbers.forEach(stat => {
+        const prefix = (stat.textContent.match(/^\D*/) || [''])[0];
         const target = parseInt(stat.textContent);
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    animateCounter(stat, 0, target, 2000);
+                    animateCounter(stat, 0, target, 2000, prefix);
                     observer.unobserve(entry.target);
                 }
             });
@@ -448,7 +449,7 @@ function initScrollEffects() {
 }
 
 // Enhanced counter animation with bounce effect
-function animateCounter(element, start, end, duration) {
+function animateCounter(element, start, end, duration, prefix = '') {
     const startTime = performance.now();
     
     function updateCounter(currentTime) {
@@ -470,13 +471,13 @@ function animateCounter(element, start, end, duration) {
         
         const easedProgress = easeOutBounce(progress);
         const current = Math.floor(start + (end - start) * easedProgress);
-        
-        element.textContent = current;
-        
+
+        element.textContent = prefix + current;
+
         if (progress < 1) {
             requestAnimationFrame(updateCounter);
         } else {
-            element.textContent = end;
+            element.textContent = prefix + end;
             // Add celebration effect
             addCelebrationEffect(element);
         }

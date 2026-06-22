@@ -5,8 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "npx http-server -p 3000 -o",
-    "dev": "npx live-server --port=3000",
-    "build": "echo 'Build process can be added here'",
+    "dev:live": "npx live-server --port=3000",
     "lint": "echo 'Linting can be added here'",
     "test": "echo 'Testing can be added here'"
   },
